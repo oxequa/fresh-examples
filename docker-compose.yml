@@ -1,0 +1,9 @@
+version: '3'
+services:
+  fresh:
+    image: tockins/fresh
+    working_dir: /go/src/github.com/tockins/fresh-examples
+    volumes:
+         - .:/go/src/github.com/tockins/fresh-examples
+    ports:
+     - "8080:8080"

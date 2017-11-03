@@ -8,7 +8,9 @@ import (
 
 func main() {
 	f := fresh.New()
+	f.Config().SetHost("0.0.0.0")
 	f.Config().SetPort(8080)
+
 
 	// API definition with path and related controller
 	f.GET("/todos/", func(c fresh.Context) error {
