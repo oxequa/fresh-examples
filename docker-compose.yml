@@ -2,8 +2,9 @@ version: '3'
 services:
   fresh:
     image: tockins/fresh
+    container_name: fresh-examples
     working_dir: /go/src/github.com/tockins/fresh-examples
     volumes:
-         - .:/go/src/github.com/tockins/fresh-examples
+         - ${GOPATH}/src:/go/src
     ports:
      - "8080:8080"
