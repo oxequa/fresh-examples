@@ -8,7 +8,6 @@ import (
 
 func main() {
 	f := fresh.New()
-	f.Config().SetHost("0.0.0.0")
 	f.Config().SetPort(8080)
 
 	// API definition with path and related controller
@@ -22,6 +21,13 @@ func main() {
 		todo := models.Todo{c.Request().URLParam("uuid"), "First Todo", "done"}
 		return c.Response().JSON(http.StatusOK, todo)
 	})
+
+	// Define static assets resources paths
+	staticPath := map[string]string{
+		"static": "public",
+	}
+	f.STATIC(staticPath)
+
 	//Start Fresh Server
 	f.Run()
 }
