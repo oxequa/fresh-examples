@@ -8,9 +8,12 @@ import (
 
 func main() {
 	f := fresh.New()
+
+	// Main configurations
 	f.Config().Port(8080)
 	// Setting Default index file
 	f.Config().StaticDefault([]string{"index.html"})
+
 	// API definition with path and related controller
 	f.GET("/todos/", func(c fresh.Context) error {
 		todos := []*models.Todo{}
